@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Monthly Carbon Footprint Calculator</h1>
+
+<form method="post">
+
+<h3>Energy</h3>
+<input type="number" name="electricity" placeholder="Electricity (kWh)" step="0.01" value="0">
+<input type="number" name="solar_units" placeholder="Solar (kWh)" step="0.01" value="0">
+<input type="number" name="lpg" placeholder="LPG Cylinders" step="0.01" value="0">
+<input type="number" name="generator_liters" placeholder="Generator Diesel" step="0.01" value="0">
+<input type="number" name="inverter_units" placeholder="Inverter (kWh)" step="0.01" value="0">
+
+<h3>Appliances</h3>
+<input type="number" name="ac_hours" placeholder="AC hours" step="0.01" value="0">
+<input type="number" name="fan_hours" placeholder="Fan hours" step="0.01" value="0">
+<input type="number" name="fridge_days" placeholder="Fridge days" step="0.01" value="0">
+<input type="number" name="tv_hours" placeholder="TV hours" step="0.01" value="0">
+<input type="number" name="washing_cycles" placeholder="Washing cycles" step="0.01" value="0">
+
+<h3>Transport</h3>
+<select name="fuel_type">
+    <option value="petrol">Petrol</option>
+    <option value="diesel">Diesel</option>
+</select>
+<input type="number" name="fuel_liters" placeholder="Fuel liters" step="0.01" value="0">
+<input type="number" name="bus_km" placeholder="Bus km" step="0.01" value="0">
+<input type="number" name="train_km" placeholder="Train km" step="0.01" value="0">
+
+<h3>Flights</h3>
+<input type="number" name="short_flight_km" placeholder="Short flight km" step="0.01" value="0">
+<input type="number" name="long_flight_km" placeholder="Long flight km" step="0.01" value="0">
+
+<h3>Lifestyle</h3>
+<select name="food_type">
+    <option value="veg">Veg</option>
+    <option value="nonveg">Non-Veg</option>
+</select>
+<input type="number" name="water_liters" placeholder="Water liters" step="0.01" value="0">
+<input type="number" name="waste_kg" placeholder="Waste kg" step="0.01" value="0">
+<input type="number" name="paper_sheets" placeholder="Paper sheets" step="0.01" value="0">
+<input type="number" name="clothes_bought" placeholder="Clothes bought" step="0.01" value="0">
+<input type="number" name="online_orders" placeholder="Online orders" step="0.01" value="0">
+
+<h3>Digital</h3>
+<input type="number" name="internet_gb" placeholder="Internet GB" step="0.01" value="0">
+<input type="number" name="mobile_hours" placeholder="Mobile hours" step="0.01" value="0">
+<input type="number" name="laptop_hours" placeholder="Laptop hours" step="0.01" value="0">
+<input type="number" name="elevator_trips" placeholder="Elevator trips" step="0.01" value="0">
+
+<h3>Green Initiative</h3>
+<input type="number" name="trees_planted" placeholder="Trees planted" step="0.01" value="0">
+
+<br><br>
+<button type="submit">Calculate</button>
+</form>
+
+{% if result %}
+<h2>Results</h2>
+<p>Total Emission: {{ result.total }} kg CO₂</p>
+<p>Carbon Offset: {{ result.offset }} kg CO₂</p>
+<p>Net Footprint: {{ result.net }} kg CO₂</p>
+<p>Impact Level: {{ result.level }}</p>
+{% endif %}
+
+</body>
+</html>
